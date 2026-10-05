@@ -33,10 +33,28 @@ function obterRota() {
 
 
 // ========================================
+// GERENCIAR FOCO APÓS NAVEGAÇÃO
+// ========================================
+
+function focarConteudoPrincipal() {
+
+    if (!app) {
+        return;
+    }
+
+    app.focus({
+        preventScroll: true
+    });
+}
+
+
+// ========================================
 // RENDERIZAR ROTA
 // ========================================
 
-function renderizarRota() {
+function renderizarRota(
+    moverFoco = true
+) {
 
     if (!app) {
         return;
@@ -143,6 +161,17 @@ function renderizarRota() {
 
             return;
     }
+
+
+    // ====================================
+    // ACESSIBILIDADE
+    // FOCO NO CONTEÚDO ATUALIZADO
+    // ====================================
+
+    if (moverFoco) {
+
+        focarConteudoPrincipal();
+    }
 }
 
 
@@ -152,7 +181,10 @@ function renderizarRota() {
 
 window.addEventListener(
     "hashchange",
-    renderizarRota
+    function () {
+
+        renderizarRota(true);
+    }
 );
 
 
@@ -164,7 +196,12 @@ function iniciarAplicacao() {
 
     configurarNavegacao();
 
-    renderizarRota();
+    /*
+        No primeiro carregamento da página,
+        o foco não é alterado automaticamente.
+    */
+
+    renderizarRota(false);
 }
 
 
