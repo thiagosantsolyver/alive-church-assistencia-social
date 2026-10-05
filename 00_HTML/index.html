@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Ministério de Assistência Social da Alive Church. Conheça nossos projetos, ações sociais e formas de contribuir."
+    >
+
+    <title>Assistência Social | Alive Church</title>
+
+    <!-- CSS PRINCIPAL DO PROJETO -->
+    <link
+        rel="stylesheet"
+        href="../01_CSS/style.css"
+    >
+
+    <!--
+        BIBLIOTECA EXTERNA:
+        Bootstrap Icons carregado via CDN.
+    -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+</head>
+
+<body>
+
+    <header>
+
+        <img
+            src="../03_Imagens/logo-alive.PNG"
+            alt="Logo da Alive Church"
+            class="logo"
+        >
+
+        <h1>Assistência Social</h1>
+
+        <p>
+            Servindo pessoas, transformando histórias.
+        </p>
+
+    </header>
+
+
+    <nav
+        class="navegacao"
+        aria-label="Navegação principal"
+    >
+
+        <button
+            class="menu-hamburguer"
+            type="button"
+            aria-label="Abrir menu de navegação"
+            aria-expanded="false"
+            aria-controls="menu-principal"
+        >
+            <i
+                class="bi bi-list"
+                aria-hidden="true"
+            ></i>
+        </button>
+
+        <ul
+            class="menu-principal"
+            id="menu-principal"
+        >
+
+            <li>
+                <a
+                    href="#inicio"
+                    data-rota="inicio"
+                >
+                    <i
+                        class="bi bi-house"
+                        aria-hidden="true"
+                    ></i>
+                    Início
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#projetos"
+                    data-rota="projetos"
+                >
+                    <i
+                        class="bi bi-people"
+                        aria-hidden="true"
+                    ></i>
+                    Projetos
+                </a>
+            </li>
+
+            <li class="item-dropdown">
+
+                <button
+                    class="botao-dropdown"
+                    type="button"
+                    aria-expanded="false"
+                >
+                    <i
+                        class="bi bi-heart"
+                        aria-hidden="true"
+                    ></i>
+                    Participar
+                </button>
+
+                <ul class="submenu">
+
+                    <li>
+                        <a
+                            href="#cadastro"
+                            data-rota="cadastro"
+                        >
+                            <i
+                                class="bi bi-person-plus"
+                                aria-hidden="true"
+                            ></i>
+                            Seja um voluntário
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#doacoes"
+                            data-rota="doacoes"
+                        >
+                            <i
+                                class="bi bi-gift"
+                                aria-hidden="true"
+                            ></i>
+                            Doações
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!--
+        O conteúdo das páginas será inserido
+        dinamicamente pelo JavaScript.
+    -->
+
+    <main id="app">
+
+        <section>
+
+            <h2>Carregando...</h2>
+
+            <p>
+                Aguarde enquanto o conteúdo é preparado.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Assistência Social | Alive Church
+        </p>
+
+        <p>
+            &copy; 2026 - Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- ===================================
+         MÓDULOS JAVASCRIPT
+         A ordem respeita as dependências.
+    ==================================== -->
+
+    <script src="../02_=JS/dados.js"></script>
+
+    <script src="../02_JS/templates.js"></script>
+
+    <script src="../02_JS/storage.js"></script>
+
+    <script src="../02_JS/formulario.js"></script>
+
+    <script src="../02_JS/navegacao.js"></script>
+
+    <script src="../02_JS/app.js"></script>
+
+</body>
+
+</html>
