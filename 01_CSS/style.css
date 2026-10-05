@@ -14,6 +14,10 @@
     --cor-branco: #ffffff;
     --cor-dourado: #c89b3c;
 
+    /* Variações para contraste acessível */
+    --cor-dourado-claro: #f0c96b;
+    --cor-dourado-escuro: #765718;
+
     /* Cores de feedback */
     --cor-sucesso: #4f7f4f;
     --cor-erro: #a94442;
@@ -63,6 +67,69 @@ body {
     background-color: var(--cor-fundo);
     color: var(--cor-cinza-escuro);
     line-height: 1.6;
+}
+
+
+/* ========================================
+   ACESSIBILIDADE
+======================================== */
+
+/*
+   Link de salto:
+   permanece fora da área visível normalmente
+   e aparece quando recebe foco pelo teclado.
+*/
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: var(--espaco-3);
+    z-index: 9999;
+
+    background-color: var(--cor-branco);
+    color: var(--cor-preto);
+
+    padding: 12px 18px;
+
+    border: 3px solid var(--cor-preto);
+    border-radius: var(--raio-pequeno);
+
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: var(--espaco-3);
+}
+
+
+/*
+   Foco visível para navegação por teclado.
+   A combinação de contorno preto e halo branco
+   mantém o foco perceptível em fundos claros
+   e escuros.
+*/
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--cor-preto);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 5px var(--cor-branco);
+}
+
+
+/*
+   O main possui tabindex="-1".
+   Isso permite que o JavaScript direcione
+   o foco ao conteúdo após mudanças de rota.
+*/
+
+main:focus {
+    outline: 3px solid var(--cor-preto);
+    outline-offset: 4px;
 }
 
 
@@ -123,6 +190,7 @@ header p {
     font-size: var(--texto-md);
     padding: 15px 22px;
     cursor: pointer;
+
     transition:
         background-color 0.3s,
         color 0.3s,
@@ -134,7 +202,7 @@ header p {
 .botao-dropdown:hover,
 .botao-dropdown:focus {
     background-color: var(--cor-cinza-escuro);
-    color: var(--cor-dourado);
+    color: var(--cor-dourado-claro);
 }
 
 .menu-principal a:active,
@@ -192,6 +260,7 @@ header p {
     font-size: 1.8rem;
     padding: 12px 18px;
     cursor: pointer;
+
     transition:
         background-color 0.3s,
         color 0.3s,
@@ -201,7 +270,7 @@ header p {
 .menu-hamburguer:hover,
 .menu-hamburguer:focus {
     background-color: var(--cor-cinza-escuro);
-    color: var(--cor-dourado);
+    color: var(--cor-dourado-claro);
 }
 
 .menu-hamburguer:active {
@@ -342,6 +411,7 @@ article h3 {
 main a {
     color: #222222;
     font-weight: bold;
+
     transition:
         color 0.3s,
         opacity 0.3s;
@@ -349,7 +419,7 @@ main a {
 
 main a:hover,
 main a:focus {
-    color: var(--cor-dourado);
+    color: var(--cor-dourado-escuro);
 }
 
 main a:active {
@@ -414,9 +484,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-    outline: none;
-    border-color: var(--cor-dourado);
-    box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.18);
+    border-color: var(--cor-dourado-escuro);
+    box-shadow: 0 0 0 3px rgba(118, 87, 24, 0.2);
 }
 
 input:valid:not(:placeholder-shown) {
@@ -429,7 +498,7 @@ input:invalid:not(:placeholder-shown) {
 
 input:focus:valid,
 input:focus:invalid {
-    border-color: var(--cor-dourado);
+    border-color: var(--cor-dourado-escuro);
 }
 
 
@@ -498,14 +567,12 @@ form button {
 
 form button:hover {
     background-color: var(--cor-cinza-escuro);
-    color: var(--cor-dourado);
+    color: var(--cor-dourado-claro);
 }
 
 form button:focus {
-    outline: none;
     background-color: var(--cor-cinza-escuro);
-    color: var(--cor-dourado);
-    box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.35);
+    color: var(--cor-dourado-claro);
 }
 
 form button:active {
@@ -590,6 +657,27 @@ footer {
 
 footer p {
     margin: 4px 0;
+}
+
+
+/* ========================================
+   ACESSIBILIDADE
+   REDUÇÃO DE MOVIMENTO
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
 
 
