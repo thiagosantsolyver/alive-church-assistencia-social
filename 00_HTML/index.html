@@ -34,6 +34,20 @@
 
 <body>
 
+    <!--
+        ACESSIBILIDADE:
+        Permite que usuários que navegam pelo teclado
+        ignorem diretamente o menu e avancem
+        para o conteúdo principal.
+    -->
+    <a
+        class="skip-link"
+        href="#app"
+    >
+        Pular para o conteúdo principal
+    </a>
+
+
     <header>
 
         <img
@@ -154,9 +168,16 @@
     <!--
         O conteúdo das páginas será inserido
         dinamicamente pelo JavaScript.
+
+        tabindex="-1" permite que o foco seja
+        direcionado programaticamente ao conteúdo
+        principal durante a navegação da SPA.
     -->
 
-    <main id="app">
+    <main
+        id="app"
+        tabindex="-1"
+    >
 
         <section>
 
@@ -189,7 +210,7 @@
          A ordem respeita as dependências.
     ==================================== -->
 
-    <script src="../02_=JS/dados.js"></script>
+    <script src="../02_JS/dados.js"></script>
 
     <script src="../02_JS/templates.js"></script>
 
